@@ -23,22 +23,34 @@ Address.prototype.fullAddress = function() {
 // user interface logic
 $(document).ready(function() {
   $("#add-address").click(function() {
-    $("#new-addresses").append('<div class="new-address">' +
-                                 '<div class="form-group">' +
-                                   '<label for="new-street">Street</label>' +
-                                   '<input type="text" class="form-control new-street">' +
-                                 '</div>' +
-                                 '<div class="form-group">' +
-                                   '<label for="new-city">City</label>' +
-                                   '<input type="text" class="form-control new-city">' +
-                                 '</div>' +
-                                 '<div class="form-group">' +
-                                   '<label for="new-state">State</label>' +
-                                   '<input type="text" class="form-control new-state">' +
-                                 '</div>' +
-                               '</div>');
-
+      $("#new-addresses").append('<div class="new-address" id="additional-address">' +
+                                   '<div class="form-group">' +
+                                     '<label for="new-street">Street</label>' +
+                                     '<input type="text" class="form-control new-street">' +
+                                   '</div>' +
+                                   '<div class="form-group">' +
+                                     '<label for="new-city">City</label>' +
+                                     '<input type="text" class="form-control new-city">' +
+                                   '</div>' +
+                                   '<div class="form-group">' +
+                                     '<label for="new-state">State</label>' +
+                                     '<input type="text" class="form-control new-state">' +
+                                   '</div>' +
+                                 '</div>');
     });
+    $("#remove-address").click(function() {
+      $("#additional-address").remove();
+    });
+
+
+    function resetFields() {
+      $("input#new-first-name").val("");
+      $("input#new-last-name").val("");
+      $("input.new-street").val("");
+      $("input.new-city").val("");
+      $("input.new-state").val("");
+    }
+
   $("form#new-contact").submit(function(event) {
     event.preventDefault();
 
@@ -68,11 +80,7 @@ $(document).ready(function() {
       });
     });
 
-    $("input#new-first-name").val("");
-    $("input#new-last-name").val("");
-    $("input.new-street").val("");
-    $("input.new-city").val("");
-    $("input.new-state").val("");
+    resetFields();
 
   });
 });
