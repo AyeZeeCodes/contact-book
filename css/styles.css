@@ -3,10 +3,25 @@
 }
 
 .contact {
-  cursor: pointer;
+  display: block;
+  border: 1px solid #eee;
+  box-shadow: 2px 3px 3px #ccc;
   color: #0088cc;
+  padding: 20px;
+  margin-top: 40px;
+  font-size: 24px;
 }
 
 .contact:hover {
   text-decoration: underline;
+}
+.img-circle {
+  margin-right: 10px;
+}
+i {
+  margin-left: 30px;
+}
+
+.left {
+  background-color: red;
 }

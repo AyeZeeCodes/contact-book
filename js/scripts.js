@@ -65,12 +65,15 @@ $(document).ready(function() {
       var inputtedState = $(this).find("input.new-state").val();
       var newAddress = new Address(inputtedStreet, inputtedCity, inputtedState);
       newContact.addresses.push(newAddress);
+
+      $("#additional-address").hide();
     });
 
-    $("ul#contacts").append("<li><span class='contact'>" + newContact.fullName() + "</span></li>");
+    $("#contacts").append("<span class='contact'>" + '<img src="https://unsplash.it/50/50" class="img-circle">'
+ + newContact.fullName() + '<i class="glyphicon glyphicon-send" aria-hidden="true"></i>' + "</span>");
 
     $(".contact").last().click(function() {
-      $("#show-contact").show();
+      $("#show-contact").show().addClass('contact');
       $("#show-contact h2").text(newContact.firstName);
       $(".first-name").text(newContact.firstName);
       $(".last-name").text(newContact.lastName);
